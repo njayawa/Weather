@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--TODO: use dimens instead of hard coding dimensions-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="myexample.com.weather.DetailActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:textSize="32sp"
+                        android:transitionName="title"
+                        tools:text="title" />
+
+                    <ImageView
+                        android:id="@+id/weather_icon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/snow"
+
+                        android:transitionName="icon" />
+
+                    <TextView
+                        android:id="@+id/degrees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:textSize="32sp"
+                        android:transitionName="degrees"
+                        tools:text="29" />
+
+                    <TextView
+                        android:id="@+id/feels_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:text="Loading..."
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/chance_of_rain"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="Loading..."
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="fill_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:id="@+id/humidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="Loading..."
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="Seven Day Forecast"
+                        android:textSize="24sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+                    <include layout="@layout/forecast_day" android:id="@+id/sunday"/>
+                    <include layout="@layout/forecast_day" android:id="@+id/monday"/>
+                    <include layout="@layout/forecast_day" android:id="@+id/tuesday"/>
+                    <include layout="@layout/forecast_day" android:id="@+id/wednesday"/>
+                    <include layout="@layout/forecast_day" android:id="@+id/thursday"/>
+                    <include layout="@layout/forecast_day" android:id="@+id/friday"/>
+                    <include layout="@layout/forecast_day" android:id="@+id/saturday"/>
+
+                </LinearLayout>
+            </ScrollView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+</layout>
